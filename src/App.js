@@ -11,7 +11,7 @@ function App() {
   const [films, setFilms] = useState([])
 
   useEffect(()=>{
-    fetch("http://swapi.dev/api/people/")
+    fetch("https://swapi.dev/api/people/")
       .then(res => {
         return res.json()
       })
