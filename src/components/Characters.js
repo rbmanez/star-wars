@@ -12,7 +12,7 @@ function Characters({ characters }){
         <div className="char-film-container">
             <div>
                 <h2>Star Wars Characters</h2>
-                <SearchBar handleChange={handleChange}/>
+                <SearchBar handleChange={handleChange} placeholderString="search for character name"/>
                 {characters.filter(c=>{
                     if(searchValue === ""){
                         return c

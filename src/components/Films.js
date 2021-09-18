@@ -13,7 +13,7 @@ function Films({ films }){
         <div className="char-film-container">
             <div>
                 <h2>Star Wars Films</h2>
-                    <SearchBar handleChange={handleChange}/>
+                    <SearchBar handleChange={handleChange} placeholderString="search for film title"/>
                     {films.filter((film)=>{
                         if (film === ''){
                             return film

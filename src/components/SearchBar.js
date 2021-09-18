@@ -1,9 +1,9 @@
 import React from 'react'
 
-function SearchBar({ handleChange }){
+function SearchBar({ handleChange, placeholderString }){
     return(
         <div id="search-container">
-            <input type="text" placeholder="search for character name" onChange={handleChange}/>
+            <input type="text" placeholder={placeholderString} onChange={handleChange}/>
         </div>
     )
 }
