@@ -43,17 +43,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-// always end session knowing what to start doing next session:
-// - clean up and push to github and pages
-// - update portfolio, resume
-
-// accomplishments:
-// - react hooks and components
-// - fetch api data
-// - react router
-// - search/filter bar
-// - responsive
