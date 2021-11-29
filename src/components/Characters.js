@@ -1,38 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { character } from '../features/characterSlice'
 import SearchBar from './SearchBar'
+import Character from './Character'
 
-function Characters({ characters }){
+function Characters(){
+    const characters = useSelector((state) => state.character.value)
+    const dispatch = useDispatch()
     const [searchValue, setSearchValue] = useState('')
 
     function handleChange(e){
         setSearchValue(e.target.value)
     }
 
+    useEffect(() => {
+        fetch(`https://swapi.dev/api/people/?search=${searchValue}`)
+            .then(res => res.json())
+            .then(data => dispatch(character(data.results)))
+            .catch(e => console.log("Error: ", e))
+    }, [searchValue, dispatch])
+
     return(
         <div className="char-film-container">
             <div>
                 <h2>Star Wars Characters</h2>
                 <SearchBar handleChange={handleChange} placeholderString="search for character name"/>
-                {characters.filter(c=>{
-                    if(searchValue === ""){
-                        return c
-                    } else if (c.name.toLowerCase().includes(searchValue.toLowerCase())) {
-                        return c
-                    } else {
-                        return null
-                    }
-                }).map((c, i)=>{
-                    return(
-                        <div className="card" key={i}>
-                            <h3>{c.name}</h3>
-                            <p>Birth Year: {c.birth_year}</p>
-                            <p>Eye Color: {c.eye_color}</p>
-                            <p>Height: {c.height} cm</p>
-                            <p>Mass: {c.mass} kg</p>
-                            <p>Gender: {c.gender}</p>
-                        </div>
-                    )
-                })}
+                <div>{characters.map((character, i) => <Character character={character} key={i}/>)}</div>
             </div>
         </div>
     )

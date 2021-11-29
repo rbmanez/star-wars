@@ -11,9 +11,6 @@ function Navbar(){
                 <li>
                     <Link to='/characters' className="nav-link">Characters</Link>
                 </li>
-                <li>
-                    <Link to='/films' className="nav-link">Films</Link>
-                </li>
             </ul>
         </nav>
     )

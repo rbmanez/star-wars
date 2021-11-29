@@ -2,9 +2,11 @@
 Check out my [React Star Wars App](https://rbmanez.github.io/star-wars/) live.
 This project utilizes:
 - React Hooks
+- React Redux Toolkit
+- Jest
 - React Router
 - fetch and Star Wars API
-- search/filter bar
+- search bar
 - CSS and responsive design
 
 ## Getting Started with Create React App
