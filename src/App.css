@@ -18,6 +18,10 @@ li:hover {
   transform: scale(1.4);
 }
 
+a {
+  text-decoration: none;
+}
+
 .nav-link {
   font-size: 20px;
   font-weight: 500;
@@ -76,6 +80,10 @@ input[type=text]:focus {
   border-radius: 10px;
   margin: 20px 0;
   padding-bottom: 15px;
+}
+
+.char-info {
+  padding: 15px 25px;
 }
 
 h2 {

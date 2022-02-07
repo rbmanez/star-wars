@@ -3,15 +3,20 @@ import React, { useState, useEffect } from 'react'
 function Species({ species }){
     const [sepciesName, setSpeciesName] = useState('')
 
-    useEffect(() => {
+    function getSpecies(speciesUrl, setSpeciesNameState){
         let mounted = true;
-        fetch(species)
+        fetch(speciesUrl)
             .then(res => res.json())
             .then(data => {
-                if (mounted) return setSpeciesName(data.name)
+                if (mounted) return setSpeciesNameState(data.name)
             })
             .catch(e => console.log("Error: ", e))
         return () => mounted = false;
+    }
+
+    useEffect(() => {
+        getSpecies(species, setSpeciesName)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [species])
 
     return <span>{sepciesName}</span>

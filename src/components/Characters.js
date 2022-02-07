@@ -13,11 +13,16 @@ function Characters(){
         setSearchValue(e.target.value)
     }
 
-    useEffect(() => {
-        fetch(`https://swapi.dev/api/people/?search=${searchValue}`)
+    function getCharacters(searchVal){
+        fetch(`https://swapi.dev/api/people/?search=${searchVal}`)
             .then(res => res.json())
             .then(data => dispatch(character(data.results)))
             .catch(e => console.log("Error: ", e))
+    }
+
+    useEffect(() => {
+        getCharacters(searchValue)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchValue, dispatch])
 
     return(
