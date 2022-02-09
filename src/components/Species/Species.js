@@ -3,19 +3,19 @@ import React, { useState, useEffect } from 'react'
 function Species({ species }){
     const [sepciesName, setSpeciesName] = useState('')
 
-    function getSpecies(speciesUrl, setSpeciesNameState){
+    function getSpecies(){
         let mounted = true;
-        fetch(speciesUrl)
+        fetch(species)
             .then(res => res.json())
             .then(data => {
-                if (mounted) return setSpeciesNameState(data.name)
+                if (mounted) return setSpeciesName(data.name)
             })
             .catch(e => console.log("Error: ", e))
         return () => mounted = false;
     }
 
     useEffect(() => {
-        getSpecies(species, setSpeciesName)
+        getSpecies()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [species])
 

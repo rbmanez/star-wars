@@ -3,19 +3,19 @@ import React, { useState, useEffect } from 'react'
 function Film({ film }){
     const [filmName, setFilmName] = useState('')
 
-    function getFilm(filmUrl, setFilmNameState){
+    function getFilm(){
         let mounted = true
-        fetch(filmUrl)
+        fetch(film)
             .then(res => res.json())
             .then(data => {
-                if (mounted) return setFilmNameState(data.title)
+                if (mounted) return setFilmName(data.title)
             })
             .catch(e => console.log("Error: ", e))
         return () => mounted = false
     }
 
     useEffect(() => {
-        getFilm(film, setFilmName)
+        getFilm()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [film])
 
