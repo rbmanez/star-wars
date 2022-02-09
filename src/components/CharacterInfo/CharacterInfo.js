@@ -1,6 +1,6 @@
 import React from 'react'
-import Film from './Film'
-import Species from './Species'
+import Film from '../Film/Film'
+import Species from '../Species/Species'
 
 import {useLocation} from "react-router-dom"
 

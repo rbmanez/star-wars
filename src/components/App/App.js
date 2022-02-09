@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './components/Home'
-import Characters from './components/Characters'
-import Navbar from './components/Navbar'
-import CharacterInfo from './components/CharacterInfo';
+import Home from '../Home/Home'
+import Characters from '../Characters'
+import Navbar from '../Navbar/Navbar'
+import CharacterInfo from '../CharacterInfo/CharacterInfo';
 
 function App() {
   return (

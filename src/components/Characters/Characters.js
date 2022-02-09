@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { character } from '../features/characterSlice'
-import SearchBar from './SearchBar'
-import Character from './Character'
+import { character } from '../../features/characterSlice'
+import SearchBar from '../SearchBar/SearchBar'
+import Character from '../Character/Character'
 
 function Characters(){
     const characters = useSelector((state) => state.character.value)
