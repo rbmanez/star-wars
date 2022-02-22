@@ -1,9 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders home and characters header link', () => {
+test('renders navbar', () => {
   render(<App />);
-  const divElement = screen.getByTestId('app')
-  expect(divElement).toHaveTextContent('Characters')
-  expect(divElement).toHaveTextContent('Home')
+  expect(screen.getByRole('navigation', '')).toBeInTheDocument()
 });

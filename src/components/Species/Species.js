@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 function Species({ species }){
-    const [sepciesName, setSpeciesName] = useState('')
+    const [speciesName, setSpeciesName] = useState('')
 
     function getSpecies(){
         let mounted = true;
@@ -19,7 +19,7 @@ function Species({ species }){
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [species])
 
-    return <span>{sepciesName}</span>
+    return <span>{speciesName}</span>
 }
 
 export default Species
