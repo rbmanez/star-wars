@@ -2,7 +2,7 @@ import CharacterInfo from "./CharacterInfo"
 import { render, screen } from "@testing-library/react" 
 import { MemoryRouter } from 'react-router-dom'
 
-test('renders name, birth_year, eye_color, height, mass, gender, species, films', () => {
+describe('<CharacterInfo />', () => {
     const character = {
         birth_year: "112BBY",
         eye_color: "yellow",
@@ -14,26 +14,75 @@ test('renders name, birth_year, eye_color, height, mass, gender, species, films'
         species: ['https://swapi.dev/api/species/2/']
     }
     
-    render(
-        <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
-            <CharacterInfo />
-        </MemoryRouter>
-    )
-    const name = screen.getByText('C-3PO')
-    const birth_year = screen.getByText('Birth Year: 112BBY')
-    const eye_color = screen.getByText('Eye Color: yellow')
-    const films = screen.getByText('Films:')
-    const gender = screen.getByText('Gender: n/a')
-    const height = screen.getByText('Height: 167 cm')
-    const mass = screen.getByText('Mass: 75 kg')
-    const species = screen.getByText('Species:')
-
-    expect(name).toBeInTheDocument()
-    expect(birth_year).toBeInTheDocument()
-    expect(eye_color).toBeInTheDocument()
-    expect(films).toBeInTheDocument()
-    expect(gender).toBeInTheDocument()
-    expect(height).toBeInTheDocument()
-    expect(mass).toBeInTheDocument()
-    expect(species).toBeInTheDocument()
+    test('renders name', () => {
+        render(
+            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
+                <CharacterInfo />
+            </MemoryRouter>
+        )
+        screen.getByText('C-3PO')
+    })
+    
+    test('renders birth_year', () => {
+        render(
+            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
+                <CharacterInfo />
+            </MemoryRouter>
+        )
+        screen.getByText('Birth Year: 112BBY')
+    })
+    
+    test('renders eye_color', () => {
+        render(
+            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
+                <CharacterInfo />
+            </MemoryRouter>
+        )
+        screen.getByText('Eye Color: yellow')
+    })
+    
+    test('renders height', () => {
+        render(
+            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
+                <CharacterInfo />
+            </MemoryRouter>
+        )
+        screen.getByText('Height: 167 cm')
+    })
+    
+    test('renders mass', () => {
+        render(
+            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
+                <CharacterInfo />
+            </MemoryRouter>
+        )
+        screen.getByText('Mass: 75 kg')
+    })
+    
+    test('renders gender', () => {
+        render(
+            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
+                <CharacterInfo />
+            </MemoryRouter>
+        )
+        screen.getByText('Gender: n/a')
+    })
+    
+    test('renders species', () => {
+        render(
+            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
+                <CharacterInfo />
+            </MemoryRouter>
+        )
+        screen.getByText('Species:')
+    })
+    
+    test('renders films', () => {
+        render(
+            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
+                <CharacterInfo />
+            </MemoryRouter>
+        )
+        screen.getByText('Films:')
+    })
 })

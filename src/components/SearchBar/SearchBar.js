@@ -3,7 +3,7 @@ import React from 'react'
 function SearchBar({ handleChange, placeholderString }){
     return(
         <div id="search-container">
-            <input type="text" placeholder={placeholderString} onChange={handleChange}/>
+            <input data-testid="searchbar" type="text" placeholder={placeholderString} onChange={handleChange}/>
         </div>
     )
 }

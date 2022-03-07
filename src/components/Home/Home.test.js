@@ -1,7 +1,9 @@
 import Home from "./Home"
 import { render, screen } from '@testing-library/react'
 
-test('renders div', () => {
-    render(<Home />)
-    expect(screen.getByTestId('home')).toBeInTheDocument()
+describe('<Home />', () => {
+    test('renders div for home page', () => {
+        render(<Home />)
+        screen.getByTestId('home')
+    })
 })
