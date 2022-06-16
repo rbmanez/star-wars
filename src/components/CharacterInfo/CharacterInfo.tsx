@@ -1,12 +1,11 @@
-import React from 'react'
 import Film from '../Film/Film'
 import Species from '../Species/Species'
-
-import {useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom"
+import { CharacterInfoState } from '../../types'
 
 function CharacterInfo(){
-    let data = useLocation()
-    const { name, birth_year, eye_color, height, mass, gender, species, films } = data.state.character
+    const data = useLocation<CharacterInfoState>()
+    const { name, birth_year, eye_color, height, mass, gender, species: speciesUrl, films: filmsUrls } = data.state.character
     
     return (
         <div className="char-film-container">
@@ -17,12 +16,12 @@ function CharacterInfo(){
                 <p>Height: {height} cm</p>
                 <p>Mass: {mass} kg</p>
                 <p>Gender: {gender}</p>
-                <p>Species: {species.length === 0 ? 'Human' : <Species species={species}/>}</p>
+                <p>Species: {speciesUrl.length === 0 ? 'Human' : <Species speciesUrl={speciesUrl}/>}</p>
                 <p>Films:</p>
                 {
-                    films.length === 0
+                    filmsUrls.length === 0
                     ? 'n/a'
-                    : films.map((film, key) => <Film film={film} key={key}/>)
+                    : filmsUrls.map((filmsUrl, key) => <Film filmsUrl={filmsUrl} key={key}/>)
                 }
             </div>
         </div>
