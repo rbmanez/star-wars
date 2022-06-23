@@ -3,12 +3,7 @@ import { characterActions } from '../../features/characterSlice'
 import SearchBar from '../SearchBar/SearchBar'
 import Character from '../Character/Character'
 import { getCharactersData } from '../../api'
-
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import type { RootState, AppDispatch } from '../../store'
-// Use throughout your app instead of plain `useDispatch` and `useSelector`
-export const useAppDispatch = () => useDispatch<AppDispatch>()
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+import { useAppDispatch, useAppSelector } from '../../store'
 
 function Characters(){
     const characters = useAppSelector((state) => state.character.value)
@@ -26,7 +21,6 @@ function Characters(){
             dispatch(characterActions(charactersData.results))
         }
         getCharacters()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchValue, dispatch])
 
     return(

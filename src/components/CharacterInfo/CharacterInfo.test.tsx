@@ -21,76 +21,52 @@ describe('<CharacterInfo />', () => {
         url: "https://swapi.dev/api/people/2/",
         vehicles: ['']
     }
-    
-    test('renders name', () => {
-        render(
+
+    const renderCharacterInfoComponent = () => {
+        return(
             <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
                 <CharacterInfo />
             </MemoryRouter>
         )
+    }
+    
+    test('renders name', () => {
+        render(renderCharacterInfoComponent())
         screen.getByText('C-3PO')
     })
     
     test('renders birth_year', () => {
-        render(
-            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
-                <CharacterInfo />
-            </MemoryRouter>
-        )
+        render(renderCharacterInfoComponent())
         screen.getByText('Birth Year: 112BBY')
     })
     
     test('renders eye_color', () => {
-        render(
-            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
-                <CharacterInfo />
-            </MemoryRouter>
-        )
+        render(renderCharacterInfoComponent())
         screen.getByText('Eye Color: yellow')
     })
     
     test('renders height', () => {
-        render(
-            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
-                <CharacterInfo />
-            </MemoryRouter>
-        )
+        render(renderCharacterInfoComponent())
         screen.getByText('Height: 167 cm')
     })
     
     test('renders mass', () => {
-        render(
-            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
-                <CharacterInfo />
-            </MemoryRouter>
-        )
+        render(renderCharacterInfoComponent())
         screen.getByText('Mass: 75 kg')
     })
     
     test('renders gender', () => {
-        render(
-            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
-                <CharacterInfo />
-            </MemoryRouter>
-        )
+        render(renderCharacterInfoComponent())
         screen.getByText('Gender: n/a')
     })
     
     test('renders species', () => {
-        render(
-            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
-                <CharacterInfo />
-            </MemoryRouter>
-        )
+        render(renderCharacterInfoComponent())
         screen.getByText('Species:')
     })
     
     test('renders films', () => {
-        render(
-            <MemoryRouter initialEntries={[{ pathname: '/characterInfo', state: { character: character }}]}>
-                <CharacterInfo />
-            </MemoryRouter>
-        )
+        render(renderCharacterInfoComponent())
         screen.getByText('Films:')
     })
 })

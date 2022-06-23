@@ -10,7 +10,6 @@ function Film({ filmsUrl }: {filmsUrl: string}){
             setFilmName(filmData.title)
         }
         getFilmName()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [filmsUrl])
 
     return <p>- {!filmName ? 'loading...' : filmName}</p>

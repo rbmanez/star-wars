@@ -10,7 +10,6 @@ function Species({ speciesUrl }: {speciesUrl: string}){
             setSpeciesName(speciesData.name)
         }
         getSpeciesName()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [speciesUrl])
 
     return <span>{speciesName}</span>
